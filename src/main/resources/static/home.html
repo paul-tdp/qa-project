@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Photo Stories</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+
+  
+    <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery.twbsPagination.js"></script>
+
+
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="home.html">Photo Stories</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-auto">
+    
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="">Add Story</i>
+
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="#">Activity Log</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav toggled">
+      <li class="nav-item active">
+        <a class="nav-link" href="home.html">
+          <i class="fas fa-book"></i>
+          <span>All Stories</span>
+        </a>
+      </li>
+		<li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" href="">
+          <i class="fas fa-plus-circle"></i>
+          <span>Add Story</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" >
+          <i class="fas fa-users"></i>
+          <span>View Users</span></a>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+
+
+
+       
+           <div class="row" id="page-content">
+  			
+     
+  
+
+
+      </div>
+      
+      
+      
+
+      
+      
+      
+      
+      
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © Paulius-TDP 2019</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">add new Story</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title of your Story</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="insert title here">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput2">Location</label>
+    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="insert city name">
+  </div>
+<form>
+  <div class="form-group">
+    <label for="photoInput">Select Image</label>
+    <input type="file" class="form-control-file" id="photoInput">
+  </div>
+</form>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Comment</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="addStory()" data-dismiss="modal">Save story</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Story</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title of your Story</label>
+    <input type="text" class="form-control" id="exampleFormControlInput10" placeholder="insert title here">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput2">Location</label>
+    <input type="text" class="form-control" id="exampleFormControlInput20" placeholder="insert city name">
+  </div>
+<form>
+  <div class="form-group">
+    <label for="photoInput">Select Image</label>
+    <input type="file" class="form-control-file" id="photoInput">
+  </div>
+</form>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Comment</label>
+    <textarea class="form-control" id="exampleFormControlTextarea10" rows="3"></textarea>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="editId()" data-dismiss="modal">Edit story</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Core plugin JavaScript-->
+  
+
+
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+
+	<script>
+	$( document ).ready(function() {
+	
+		$.ajax({
+			type : "GET",
+			url : "http://localhost:8080/getstories",
+			success : function(data) {
+				console.log("success")
+
+				
+				$.each(data, function(index, story) {
+					$('#page-content').prepend(
+							"<div class='col-lg-6'>" +
+					           "<div class='card mb-3'>" +
+					             "<div class='card-body'>" +
+					               "<div class='card' style='width: 100%; border:none'>" +
+					    "<img src='img1/empty.jpg' + 'width='200' height='300' class='card-img-top' alt='...'>" +
+					    "<div class='card-body text-center'>" + 
+					    	"<span id='" + story.story_id + "'>" + "</span>" +
+					        "<h5 class='card-title'>" + story.title + "</h5>" +
+					        "<p class='card-text'>" + story.storytext + "</p>" +
+					        
+					        "<a href='#' class='btn btn-primary btn-primary-spacing'>View Story</a>" + "<a href='#' class='btn btn-warning btn-primary-spacing' data-toggle='modal' data-target='#editModal' onclick='captureID(this.id)' id='" + story.story_id + "'>Edit Story</a>" + "<a href='#' class='btn btn-danger btn-primary-spacing' onclick='deleteStory(this.id)' id='" + story.story_id + "'>Delete Story</a>" +
+					        
+					        "</div>" +
+					"</div>"
+							)
+
+				});
+				return false;
+			}
+		});
+	
+	});
+	</script>
+	
+	<script>
+	function addStory() {
+	    var title = document.getElementById('exampleFormControlInput1').value;
+	    var location = document.getElementById('exampleFormControlInput2').value;
+	    var text = document.getElementById('exampleFormControlTextarea1').value;
+	    var user_id = 2;
+	    var picture = "Link to picture to be inserted in the future"
+	    var story_id = "";
+	    var num_likes = 0;
+	    var story = new Object();
+	    story.user_id = user_id;
+	    story.title = title;
+	    story.picture = picture;
+	    story.num_likes = num_likes;
+	    story.location = location;
+	    story.storytext = text;
+	    story.story_id = story_id;
+	    var storyJSON = JSON.stringify(story);
+	    console.log(storyJSON);
+	    alert("Story has been saved");
+	    window.location = window.location;
+	    $.ajax({
+	      type : "POST",
+	      url : "http://localhost:8080/savestory",
+	      contentType : "application/json",
+	      data : storyJSON,
+	      success : function(data) {
+	    	
+	      },
+	      error : function(data) {
+	        console.log(data);
+	      },
+	      dataType : 'json'
+	    });
+	  }
+	</script>
+	
+	
+	<script>
+	
+	var editID = 0;
+	function captureID(btnid) {
+		editID = btnid;
+		var capturedID = btnid;
+		console.log("this is btn ID" + " " + capturedID);
+		console.log(" gobal this is btn ID" + " " + editID);
+		return capturedID;
+		
+	}
+	</script>
+	<script>
+	function editId() {
+		var myid = editID;
+		console.log("THIS IS THE ULTIMATE TEST" + " " + myid);
+	}
+	</script>
+	
+	
+	<script>
+	
+	
+	
+	function deleteStory(clickedID) {
+		
+		
+		alert("story was deleted");
+		window.location = window.location;
+		$.ajax({
+		    url: "http://localhost:8080/deletestory/" + clickedID,
+		    type: 'DELETE',
+		    success: function(result) {
+		        // Do something with the result
+		    
+		    
+		    }
+		});
+		     
+		
+		
+	}
+	</script>
+	
+	<script>
+	
+	
+	
+	function editStory() {
+		
+		
+	    var title = document.getElementById('exampleFormControlInput10').value;
+	    var location = document.getElementById('exampleFormControlInput20').value;
+	    var text = document.getElementById('exampleFormControlTextarea10').value;
+	    var user_id = 2;
+	    var picture = "Link to picture to be inserted in the future"
+	    var story_id = "";
+	    var num_likes = 0;
+	    var story = new Object();
+	    story.user_id = user_id;
+	    story.title = title;
+	    story.picture = picture;
+	    story.num_likes = num_likes;
+	    story.location = location;
+	    story.storytext = text;
+	    story.story_id = story_id;
+	    var storyJSON = JSON.stringify(story);
+	    console.log(storyJSON);
+	    alert("Story has been updated");
+	    window.location = window.location;
+	    $.ajax({
+	      type : "PUT",
+	      url : "http://localhost:8080/updatestory",
+	      contentType : "application/json",
+	      data : storyJSON,
+	      success : function(data) {
+	    	
+	      },
+	      error : function(data) {
+	        console.log(data);
+	      },
+	      dataType : 'json'
+	    });
+	  }
+	
+	
+	</script>
+	
+
+</body>
+
+</html>
