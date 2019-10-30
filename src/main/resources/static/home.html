@@ -240,7 +240,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="editId()" data-dismiss="modal">Edit story</button>
+        <button type="button" class="btn btn-primary" onclick="editStory()" data-dismiss="modal">Edit story</button>
       </div>
     </div>
   </div>
@@ -377,17 +377,13 @@
 	
 	<script>
 	
-	
-	
 	function editStory() {
-		
-		
 	    var title = document.getElementById('exampleFormControlInput10').value;
 	    var location = document.getElementById('exampleFormControlInput20').value;
 	    var text = document.getElementById('exampleFormControlTextarea10').value;
 	    var user_id = 2;
 	    var picture = "Link to picture to be inserted in the future"
-	    var story_id = "";
+	    var story_id = editID;
 	    var num_likes = 0;
 	    var story = new Object();
 	    story.user_id = user_id;
@@ -415,8 +411,6 @@
 	      dataType : 'json'
 	    });
 	  }
-	
-	
 	</script>
 	
 
