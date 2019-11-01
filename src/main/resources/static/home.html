@@ -178,21 +178,22 @@
     <label for="exampleFormControlInput2">Location</label>
     <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="insert city name">
   </div>
-<form>
-  <div class="form-group">
-    <label for="photoInput">Select Image</label>
-    <input type="file" class="form-control-file" id="photoInput">
-  </div>
-</form>
+
+
+
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Comment</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
 </form>
+					<form id="uploadForm" name="uploadForm">
+                        <input id="photoInput" type="file" name="file" class="file-input" required />
+                        <button type="submit" class="primary submit-btn" onclick="upload()">Submit</button>
+                    </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="addStory()" data-dismiss="modal">Save story</button>
+        <button type="button" id="savebtn" class="btn btn-primary" onclick="add()" data-dismiss="modal">Save story</button>
       </div>
     </div>
   </div>
@@ -226,17 +227,15 @@
     <label for="exampleFormControlInput2">Location</label>
     <input type="text" class="form-control" id="exampleFormControlInput20" placeholder="insert city name">
   </div>
-<form>
-  <div class="form-group">
-    <label for="photoInput">Select Image</label>
-    <input type="file" class="form-control-file" id="photoInput">
-  </div>
-</form>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Comment</label>
     <textarea class="form-control" id="exampleFormControlTextarea10" rows="3"></textarea>
   </div>
 </form>
+		<form id="uploadForm10" name="uploadForm">
+              <input id="photoInput10" type="file" name="file" class="file-input" required />
+              <button type="submit" class="primary submit-btn" onclick="editUpload()">Submit</button>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -273,7 +272,7 @@
 					           "<div class='card mb-3'>" +
 					             "<div class='card-body'>" +
 					               "<div class='card' style='width: 100%; border:none'>" +
-					    "<img src='img1/empty.jpg' + 'width='200' height='300' class='card-img-top' alt='...'>" +
+					    "<img src='"+story.picture+"'" + "width='200' height='300' class='card-img-top' alt='...'>" +
 					    "<div class='card-body text-center'>" + 
 					    	"<span id='" + story.story_id + "'>" + "</span>" +
 					        "<h5 class='card-title'>" + story.title + "</h5>" +
@@ -293,8 +292,149 @@
 	});
 	</script>
 	
+	
+	
+	<Script>
+	var filename = "";
+	function upload() {
+    	console.log("this works");
+    $('#uploadForm').submit(function(event) {
+        var formElement = this;
+        var formData = new FormData(formElement);
+		
+		var name = document.getElementById("photoInput").value;
+		filename = name.replace(/^.*[\\\/]/, '');
+		console.log(filename);
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "/uploadFile",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+              
+            	
+            	
+            	console.log("this worked!!!!")
+            	
+            	
+            	
+            	
+            },
+            error: function (error) {
+                console.log(error);
+                // process error
+            }
+        });
+
+        event.preventDefault();
+    });
+	}
+	</script>
+	
+	
+	
+	
+	
+	<Script>
+	var filename = "";
+	function editUpload() {
+    	console.log("this works");
+    $('#uploadForm10').submit(function(event) {
+        var formElement = this;
+        var formData = new FormData(formElement);
+		
+		var name = document.getElementById("photoInput10").value;
+		filename = name.replace(/^.*[\\\/]/, '');
+		console.log(filename);
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "/uploadFile",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+              
+            	
+            	
+            	console.log("this worked!!!!")
+            	
+            	
+            	
+            	
+            },
+            error: function (error) {
+                console.log(error);
+                // process error
+            }
+        });
+
+        event.preventDefault();
+    });
+	}
+	</script>
+	
+	
+	
+	
+	
+	
+	
 	<script>
-	function addStory() {
+   function add() {
+    var title = document.getElementById('exampleFormControlInput1').value;
+	    var location = document.getElementById('exampleFormControlInput2').value;
+	    var text = document.getElementById('exampleFormControlTextarea1').value;
+	    var name = document.getElementById("photoInput").value;
+		filename = name.replace(/^.*[\\\/]/, '');
+	    var user_id = 2;
+	    var picture = "/uploads/" + filename;
+	    var story_id = "";
+	    var num_likes = 0;
+	    var story = new Object();
+	    story.user_id = user_id;
+	    story.title = title;
+	    story.picture = picture;
+	    story.num_likes = num_likes;
+	    story.location = location;
+	    story.storytext = text;
+	    story.story_id = story_id;
+	    var storyJSON = JSON.stringify(story);
+	    console.log(storyJSON);
+	    alert("Story has been saveds");
+	    window.location = window.location;
+	    $.ajax({
+	      type : "POST",
+	      url : "http://localhost:8080/savestory",
+	      contentType : "application/json",
+	      data : storyJSON,
+	      success : function(data) {
+	    	
+	      },
+	      error : function(data) {
+	        console.log(data);
+	      },
+	      dataType : 'json'
+	    }); 
+    } 
+	
+	</Script>
+	
+
+	<script>
+	
+	function combined() {
+		upload();
+		add();
+	}
+	
+	</script>
+	
+	
+	<script>
+/*	function addStory() {
 	    var title = document.getElementById('exampleFormControlInput1').value;
 	    var location = document.getElementById('exampleFormControlInput2').value;
 	    var text = document.getElementById('exampleFormControlTextarea1').value;
@@ -327,7 +467,7 @@
 	      },
 	      dataType : 'json'
 	    });
-	  }
+	  } */
 	</script>
 	
 	
@@ -381,8 +521,10 @@
 	    var title = document.getElementById('exampleFormControlInput10').value;
 	    var location = document.getElementById('exampleFormControlInput20').value;
 	    var text = document.getElementById('exampleFormControlTextarea10').value;
+	    var name = document.getElementById("photoInput10").value;
+		filename = name.replace(/^.*[\\\/]/, '');
 	    var user_id = 2;
-	    var picture = "Link to picture to be inserted in the future"
+	    var picture = "/uploads/" + filename;
 	    var story_id = editID;
 	    var num_likes = 0;
 	    var story = new Object();
@@ -412,6 +554,8 @@
 	    });
 	  }
 	</script>
+	
+	
 	
 
 </body>
