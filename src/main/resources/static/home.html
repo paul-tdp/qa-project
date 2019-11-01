@@ -261,7 +261,7 @@
 	
 		$.ajax({
 			type : "GET",
-			url : "http://localhost:8080/getstories",
+			url : "http://"+location.hostname+":8081/getstories",
 			success : function(data) {
 				console.log("success")
 
@@ -407,7 +407,8 @@
 	    window.location = window.location;
 	    $.ajax({
 	      type : "POST",
-	      url : "http://localhost:8080/savestory",
+	      url : "http://"+location.hostname+":8081/savestory",
+	     // url : "http://localhost:8080/savestory",
 	      contentType : "application/json",
 	      data : storyJSON,
 	      success : function(data) {
@@ -501,7 +502,8 @@
 		alert("story was deleted");
 		window.location = window.location;
 		$.ajax({
-		    url: "http://localhost:8080/deletestory/" + clickedID,
+			url : "http://"+location.hostname+":8081/deletestory/" + clickedID,
+		    //url: "http://localhost:8080/deletestory/" + clickedID,
 		    type: 'DELETE',
 		    success: function(result) {
 		        // Do something with the result
@@ -541,7 +543,8 @@
 	    window.location = window.location;
 	    $.ajax({
 	      type : "PUT",
-	      url : "http://localhost:8080/updatestory",
+	      url : "http://"+location.hostname+":8081/updatestory",
+	      //url : "http://localhost:8080/updatestory",
 	      contentType : "application/json",
 	      data : storyJSON,
 	      success : function(data) {
