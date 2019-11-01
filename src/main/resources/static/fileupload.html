@@ -11,7 +11,7 @@
         </noscript>
         <div class="upload-container">
             <div class="upload-header">
-                <h2>Spring Boot File Upload / Download Rest API Example</h2>
+                <h2>FILE UPLAOD</h2>
             </div>
             <div class="upload-content">
                 <div class="single-upload">
@@ -36,6 +36,9 @@
             var formElement = this;
             var formData = new FormData(formElement);
 			console.log(formData);
+			var name = document.getElementById("singleFileUploadInput").value;
+			var filename = name.replace(/^.*[\\\/]/, '');
+			console.log(filename);
             $.ajax({
                 type: "POST",
                 enctype: 'multipart/form-data',
@@ -53,7 +56,7 @@
                 }
             });
 
-            event.preventDefault();
+            //event.preventDefault();
         });
         }
         </Script>
