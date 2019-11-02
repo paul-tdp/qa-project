@@ -351,7 +351,7 @@
         $.ajax({
             type: "POST",
             enctype: 'multipart/form-data',
-            url: "/uploadFile",
+            url: "http://35.189.73.113:8081/uploadFile",
             data: formData,
             processData: false,
             contentType: false,
@@ -499,9 +499,9 @@
 		
 		
 		alert("story was deleted");
-		window.location = window.location;
+		//window.location = window.location;
 		$.ajax({
-			url : "http://"+location.hostname+":8081/deletestory/" + clickedID,
+			url : "http://35.189.73.113:8081/deletestory/" + clickedID,
 		    //url: "http://localhost:8080/deletestory/" + clickedID,
 		    type: 'DELETE',
 		    success: function(result) {
@@ -539,10 +539,10 @@
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
 	    alert("Story has been updated");
-	    window.location = window.location;
+	    //window.location = window.location;
 	    $.ajax({
 	      type : "PUT",
-	      url : "http://"+location.hostname+":8081/updatestory",
+	      url : "http://35.189.73.113:8081/updatestory",
 	      //url : "http://localhost:8080/updatestory",
 	      contentType : "application/json",
 	      data : storyJSON,
