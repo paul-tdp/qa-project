@@ -308,7 +308,7 @@
         $.ajax({
             type: "POST",
             enctype: 'multipart/form-data',
-            url: "/uploadFile",
+            url: "http://35.189.73.113:8081/uploadFile",
             data: formData,
             processData: false,
             contentType: false,
@@ -390,7 +390,7 @@
 	    var name = document.getElementById("photoInput").value;
 		filename = name.replace(/^.*[\\\/]/, '');
 	    var user_id = 2;
-	    var picture = "/var/www/uploads/" + filename;
+	    var picture = "/uploads/" + filename;
 	    var story_id = "";
 	    var num_likes = 0;
 	    var story = new Object();
@@ -525,7 +525,7 @@
 	    var name = document.getElementById("photoInput10").value;
 		filename = name.replace(/^.*[\\\/]/, '');
 	    var user_id = 2;
-	    var picture = "/var/www/uploads/" + filename;
+	    var picture = "/uploads/" + filename;
 	    var story_id = editID;
 	    var num_likes = 0;
 	    var story = new Object();
