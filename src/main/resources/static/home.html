@@ -239,7 +239,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="editStory()">Edit story</button>
+        <button type="button" class="btn btn-primary" onclick="editStory()" data-dismiss="modal">Edit story</button>
       </div>
     </div>
   </div>
@@ -432,8 +432,8 @@ function downloadFile(cid) {
 	    story.story_id = story_id;
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
-	    swal("Success", "The story has been added!", "success")
-	    .then((value) => {
+	    swal("Success", "The story has been added!", "success");
+	    window.reload = window.reload;
 	    	$.ajax({
 	  	      type : "POST",
 	  	      url : "http://35.189.73.113:8081/savestory",
@@ -447,8 +447,8 @@ function downloadFile(cid) {
 	  	      },
 	  	      dataType : 'json'
 	  	    });
-	    	location.reload();
-		    	});
+	    	
+		    	
 	    
 	    event.preventDefault();
     } 
@@ -574,7 +574,8 @@ function downloadFile(cid) {
 	    story.story_id = story_id;
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
-	    
+	    swal("Success", "The story has been added!", "success");
+	    window.reload = window.reload;
 	    //window.location = window.location;
 	    $.ajax({
 	      type : "PUT",
@@ -583,12 +584,7 @@ function downloadFile(cid) {
 	      contentType : "application/json",
 	      data : storyJSON,
 	      success : function(data) {
-	    	  swal("Success", "The story has been updated!", "success")
-		    	
-		    	.then((value) => {
-		    		$('#editModal').modal('hide');
-		    		location.reload();
-		    	});
+	    	  
 	      },
 	      error : function(data) {
 	        console.log(data);
