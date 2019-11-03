@@ -384,7 +384,11 @@ function downloadFile(cid) {
               
             	
             	
-            	console.log("this worked!!!!")
+				swal("Image updated", "...now press the edit button below!", "success")
+		    	
+		    	.then((value) => {
+		    		location.reload();
+		    	});
             	
             	
             	
@@ -439,8 +443,11 @@ function downloadFile(cid) {
 	      contentType : "application/json",
 	      data : storyJSON,
 	      success : function(data) {
-	    	  alert("Story has been saveds");
-	    	  location.reload();
+	    	  swal("Success", "The story has been added!", "success")
+		    	
+		    	.then((value) => {
+		    		location.reload();
+		    	});
 	      },
 	      error : function(data) {
 	        console.log(data);
@@ -535,7 +542,7 @@ function downloadFile(cid) {
 		    type: 'DELETE',
 		    success: function(result) {
 		        // Do something with the result
-		    	swal("Success", "The story has been deleted!", "error")
+		    	swal("Success", "The story has been deleted!", "success")
 		    	
 		    	.then((value) => {
 		    		location.reload();
@@ -570,7 +577,7 @@ function downloadFile(cid) {
 	    story.story_id = story_id;
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
-	    alert("Story has been updated");
+	    
 	    //window.location = window.location;
 	    $.ajax({
 	      type : "PUT",
@@ -579,7 +586,11 @@ function downloadFile(cid) {
 	      contentType : "application/json",
 	      data : storyJSON,
 	      success : function(data) {
-	    	  location.reload();
+	    	  swal("Success", "The story has been updated!", "success")
+		    	
+		    	.then((value) => {
+		    		location.reload();
+		    	});
 	      },
 	      error : function(data) {
 	        console.log(data);
