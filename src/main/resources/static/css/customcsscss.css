@@ -15,6 +15,12 @@ html {
   height: 100%;
 }
 
+.card {
+    border: none
+}
+
+
+
 body {
     height: 100vh;
 background: #1e3c72;  /* fallback for old browsers */
@@ -88,4 +94,26 @@ h2 {
 a {
 	color: #fff !important;
 }
+
+#page-content {
+    background: -webkit-linear-gradient(to left, #2a5298, #1e3c72) !important;
+    background: linear-gradient(to left, #2a5298, #1e3c72) !important;
+}
+
+#wrapper {
+    background: -webkit-linear-gradient(to left, #2a5298, #1e3c72) !important;
+    background: linear-gradient(to left, #2a5298, #1e3c72) !important;
+    
+}
+
+.card {
+    background-color:transparent;
+}
+
+.vid {
+    margin: auto;
+    height: 350 !important;
+    width: 420;
+}
+
 
