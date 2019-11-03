@@ -525,11 +525,37 @@ function downloadFile(cid) {
 	
 	
 	function deleteStory(clickedID) {
+		swal({
+			  title: "Are you sure?",
+			  text: "Once deleted, you will not be able to recover this imaginary file!",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((willDelete) => {
+			  if (willDelete) {
+			    swal("Poof! Your imaginary file has been deleted!", {
+			      icon: "success",
+			    });
+			    $.ajax({
+					url : "http://35.189.73.113:8081/deletestory/" + clickedID,
+				    //url: "http://localhost:8080/deletestory/" + clickedID,
+				    type: 'DELETE',
+				    success: function(result) {
+				        // Do something with the result
+				    	location.reload();
+				    
+				    }
+				});
+			    
+			  } else {
+			    swal("Your imaginary file is safe!");
+			  }
+			});
 		
-		
-		alert("story was deleted");
+		//alert("story was deleted");
 		//window.location = window.location;
-		$.ajax({
+		/*$.ajax({
 			url : "http://35.189.73.113:8081/deletestory/" + clickedID,
 		    //url: "http://localhost:8080/deletestory/" + clickedID,
 		    type: 'DELETE',
@@ -538,7 +564,7 @@ function downloadFile(cid) {
 		    	location.reload();
 		    
 		    }
-		});
+		}); */
 		     
 		
 		
