@@ -414,7 +414,7 @@ function downloadFile(cid) {
 	
    function add() {
     var title = document.getElementById('exampleFormControlInput1').value;
-	    var location = document.getElementById('exampleFormControlInput2').value;
+	    var locations = document.getElementById('exampleFormControlInput2').value;
 	    var text = document.getElementById('exampleFormControlTextarea1').value;
 	    var name = document.getElementById("photoInput").value;
 		filename = name.replace(/^.*[\\\/]/, '');
@@ -427,13 +427,13 @@ function downloadFile(cid) {
 	    story.title = title;
 	    story.picture = picture;
 	    story.num_likes = num_likes;
-	    story.location = location;
+	    story.location = locations;
 	    story.storytext = text;
 	    story.story_id = story_id;
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
 	    swal("Success", "The story has been added!", "success");
-	    location.reload();
+	    location.reload(true);
 	    	$.ajax({
 	  	      type : "POST",
 	  	      url : "http://35.189.73.113:8081/savestory",
@@ -542,7 +542,7 @@ function downloadFile(cid) {
 		    	swal("Success", "The story has been deleted!", "success")
 		    	
 		    	.then((value) => {
-		    		location.reload();
+		    		location.reload(true);
 		    	});
 		    }
 		});
@@ -556,7 +556,7 @@ function downloadFile(cid) {
 	
 	function editStory() {
 	    var title = document.getElementById('exampleFormControlInput10').value;
-	    var location = document.getElementById('exampleFormControlInput20').value;
+	    var locations = document.getElementById('exampleFormControlInput20').value;
 	    var text = document.getElementById('exampleFormControlTextarea10').value;
 	    var name = document.getElementById("photoInput10").value;
 		filename = name.replace(/^.*[\\\/]/, '');
@@ -569,7 +569,7 @@ function downloadFile(cid) {
 	    story.title = title;
 	    story.picture = picture;
 	    story.num_likes = num_likes;
-	    story.location = location;
+	    story.location = locations;
 	    story.storytext = text;
 	    story.story_id = story_id;
 	    var storyJSON = JSON.stringify(story);
