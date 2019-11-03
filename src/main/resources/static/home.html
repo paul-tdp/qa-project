@@ -260,8 +260,9 @@
 
 <script>
 var cptId = "";
-function downloadFile(id) {
-	cptId = document.getElementById(id).value;
+function downloadFile(cid) {
+	cptId = document.getElementById(cid).value;
+	console.log("this is the id " + " " + cid);
 	var name = cptId.str.split("/uploads/").pop();
 	console.log(name);
 }
