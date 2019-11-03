@@ -5,7 +5,12 @@ function editStory() {
     var name = document.getElementById("photoInput10").value;
     filename = name.replace(/^.*[\\\/]/, '');
     var user_id = 2;
-    var picture = "/uploads/" + filename;
+    if(filename.length > 1) {
+      var picture = "/uploads/" + filename;
+      }
+      else {
+        var picture = "/uploads/placeholder.jpg"
+      }
     var story_id = editID;
     var num_likes = 0;
     var story = new Object();

@@ -4,8 +4,13 @@ function add() {
 	    var text = document.getElementById('exampleFormControlTextarea1').value;
 	    var name = document.getElementById("photoInput").value;
 		filename = name.replace(/^.*[\\\/]/, '');
-	    var user_id = 2;
-	    var picture = "/uploads/" + filename;
+		var user_id = 2;
+		if(filename.length > 1) {
+		var picture = "/uploads/" + filename;
+		}
+		else {
+			var picture = "/uploads/placeholder.jpg"
+		}
 	    var story_id = "";
 	    var num_likes = 0;
 	    var story = new Object();
