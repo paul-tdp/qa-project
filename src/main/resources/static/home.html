@@ -259,10 +259,11 @@
 
 
 <script>
+var cptId = "";
 function downloadFile(id) {
-	var name = document.getElementById(id).value;
-	name = name.str.split("/uploads/").pop();
-	console.log(name)
+	cptId = document.getElementById(id).value;
+	var name = cptId.str.split("/uploads/").pop();
+	console.log(name);
 }
 
 </script>
