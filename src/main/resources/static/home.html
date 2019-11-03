@@ -256,6 +256,21 @@
 
   <!-- Demo scripts for this page-->
 
+
+
+<script>
+function downloadFile(id) {
+	var name = document.getElementById(id).value;
+	name = name.str.split("/uploads/").pop();
+}
+
+</script>
+
+
+
+
+
+
 	<script>
 	$( document ).ready(function() {
 	
@@ -278,7 +293,7 @@
 					        "<h5 class='card-title'>" + story.title + "</h5>" +
 					        "<p class='card-text'>" + story.storytext + "</p>" +
 					        
-					        "<a href='#' class='btn btn-primary btn-primary-spacing'>View Story</a>" + "<a href='#' class='btn btn-warning btn-primary-spacing' data-toggle='modal' data-target='#editModal' onclick='captureID(this.id)' id='" + story.story_id + "'>Edit Story</a>" + "<a href='#' class='btn btn-danger btn-primary-spacing' onclick='deleteStory(this.id)' id='" + story.story_id + "'>Delete Story</a>" +
+					        "<a href='' class='btn btn-primary btn-primary-spacing' id='" + story.picture + "'>Download</a>" + "<a href='' class='btn btn-warning btn-primary-spacing' data-toggle='modal' data-target='#editModal' onclick='captureID(this.id)' id='" + story.story_id + "'>Edit Story</a>" + "<a href='' class='btn btn-danger btn-primary-spacing' onclick='deleteStory(this.id)' id='" + story.story_id + "'>Delete Story</a>" +
 					        
 					        "</div>" +
 					"</div>"
@@ -305,6 +320,7 @@
 		var name = document.getElementById("photoInput").value;
 		filename = name.replace(/^.*[\\\/]/, '');
 		console.log(filename);
+		console.log(formData);
         $.ajax({
             type: "POST",
             enctype: 'multipart/form-data',
@@ -383,6 +399,9 @@
 	
 	
 	<script>
+	
+	
+	
    function add() {
     var title = document.getElementById('exampleFormControlInput1').value;
 	    var location = document.getElementById('exampleFormControlInput2').value;
