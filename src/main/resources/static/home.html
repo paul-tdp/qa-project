@@ -527,15 +527,15 @@ function downloadFile(cid) {
 	function deleteStory(clickedID) {
 		
 		
-		swal("Success", "The story has been deleted!", "danger");
-		//window.location = window.location;
+		swal("Success", "The story has been deleted!", "alert");
+		window.location = window.location;
 		$.ajax({
 			url : "http://35.189.73.113:8081/deletestory/" + clickedID,
 		    //url: "http://localhost:8080/deletestory/" + clickedID,
 		    type: 'DELETE',
 		    success: function(result) {
 		        // Do something with the result
-		    	location.reload();
+		    
 		    
 		    }
 		});
