@@ -527,7 +527,7 @@ function downloadFile(cid) {
 	function deleteStory(clickedID) {
 		
 		
-		swal("Success", "The story has been deleted!", "error");
+		
 		
 		$.ajax({
 			url : "http://35.189.73.113:8081/deletestory/" + clickedID,
@@ -538,7 +538,7 @@ function downloadFile(cid) {
 		    	swal("Success", "The story has been deleted!", "error")
 		    	
 		    	.then((value) => {
-		    		location.reload(););
+		    		location.reload();
 		    	});
 		    }
 		});
