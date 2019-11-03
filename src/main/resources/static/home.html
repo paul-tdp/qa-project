@@ -193,7 +193,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="savebtn" class="btn btn-primary" onclick="add()">Save story</button>
+        <button type="button" id="savebtn" class="btn btn-primary" onclick="add()" data-dismiss="modal">Save story</button>
       </div>
     </div>
   </div>
@@ -432,26 +432,24 @@ function downloadFile(cid) {
 	    story.story_id = story_id;
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
-	    
-	    
-	    $.ajax({
-	      type : "POST",
-	      url : "http://35.189.73.113:8081/savestory",
-	      contentType : "application/json",
-	      data : storyJSON,
-	      success : function(data) {
-	    	  swal("Success", "The story has been added!", "success")
-		    	
-		    	.then((value) => {
-		    		$('#exampleModalCenter').modal('hide');
-		    		location.reload();
+	    swal("Success", "The story has been added!", "success")
+	    .then((value) => {
+	    	$.ajax({
+	  	      type : "POST",
+	  	      url : "http://35.189.73.113:8081/savestory",
+	  	      contentType : "application/json",
+	  	      data : storyJSON,
+	  	      success : function(data) {
+	  	    	  
+	  	      },
+	  	      error : function(data) {
+	  	        console.log(data);
+	  	      },
+	  	      dataType : 'json'
+	  	    });
+	    	location.reload();
 		    	});
-	      },
-	      error : function(data) {
-	        console.log(data);
-	      },
-	      dataType : 'json'
-	    }); 
+	    
 	    event.preventDefault();
     } 
 	
