@@ -404,7 +404,7 @@
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
 	    alert("Story has been saveds");
-	    location.reload();
+	    window.location = window.location;
 	    $.ajax({
 	      type : "POST",
 	      url : "http://35.189.73.113:8081/savestory",
