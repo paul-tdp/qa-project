@@ -2,8 +2,10 @@ function add() {
     var title = document.getElementById('exampleFormControlInput1').value;
 	    var locations = document.getElementById('exampleFormControlInput2').value;
 	    var text = document.getElementById('exampleFormControlTextarea1').value;
-	    var name = document.getElementById("photoInput").value;
+		var name = document.getElementById("photoInput").value;
+		console.log(name);
 		filename = name.replace(/^.*[\\\/]/, '');
+		console.log(filename);
 		var user_id = 2;
 		if(filename.length > 1) {
 		var picture = "/uploads/" + filename;
