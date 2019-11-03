@@ -266,7 +266,11 @@ function downloadFile(cid) {
 	var name = cid.substring(8);
 	var downloadUrl = "http://35.189.73.113:8081/downloadFile" + name
 	console.log(name);
-	return downloadUrl;
+	$.fileDownload(downloadUrl, {
+	    preparingMessageHtml: "Downloading...",
+	    failMessageHtml: "Error, please try again."
+	});
+	
 }
 
 </script>
