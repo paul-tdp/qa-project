@@ -433,7 +433,7 @@ function downloadFile(cid) {
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
 	    swal("Success", "The story has been added!", "success");
-	    window.reload = window.reload;
+	    location.reload();
 	    	$.ajax({
 	  	      type : "POST",
 	  	      url : "http://35.189.73.113:8081/savestory",
@@ -575,7 +575,7 @@ function downloadFile(cid) {
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
 	    swal("Success", "The story has been added!", "success");
-	    window.reload = window.reload;
+	    location.reload();
 	    //window.location = window.location;
 	    $.ajax({
 	      type : "PUT",
