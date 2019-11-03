@@ -535,8 +535,11 @@ function downloadFile(cid) {
 		    type: 'DELETE',
 		    success: function(result) {
 		        // Do something with the result
-		    	swal("Success", "The story has been deleted!", "error");
-		    	location.reload();
+		    	swal("Success", "The story has been deleted!", "error")
+		    	
+		    	.then((value) => {
+		    		location.reload(););
+		    	});
 		    }
 		});
 		     
