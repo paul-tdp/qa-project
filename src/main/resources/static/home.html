@@ -431,15 +431,16 @@ function downloadFile(cid) {
 	    story.story_id = story_id;
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
-	    alert("Story has been saveds");
-	    window.location = window.location;
+	    
+	    
 	    $.ajax({
 	      type : "POST",
 	      url : "http://35.189.73.113:8081/savestory",
 	      contentType : "application/json",
 	      data : storyJSON,
 	      success : function(data) {
-	    	 
+	    	  alert("Story has been saveds");
+	    	  location.reload();
 	      },
 	      error : function(data) {
 	        console.log(data);
