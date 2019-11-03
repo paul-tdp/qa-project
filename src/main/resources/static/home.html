@@ -443,6 +443,7 @@ function downloadFile(cid) {
 	    	  swal("Success", "The story has been added!", "success")
 		    	
 		    	.then((value) => {
+		    		$('#exampleModalCenter').modal('hide');
 		    		location.reload();
 		    	});
 	      },
@@ -587,6 +588,7 @@ function downloadFile(cid) {
 	    	  swal("Success", "The story has been updated!", "success")
 		    	
 		    	.then((value) => {
+		    		$('#editModal').modal('hide');
 		    		location.reload();
 		    	});
 	      },
