@@ -432,19 +432,18 @@ function downloadFile(cid) {
 	    story.story_id = story_id;
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
-	    //swal("Success", "The story has been added!", "success");
-	    //location.reload(true);
+	    swal("Success", "The story has been added!", "success")
+    	
+    	.then((value) => {
+    		location.reload(true);
+    	});
 	    	$.ajax({
 	  	      type : "POST",
 	  	      url : "http://35.189.73.113:8081/savestory",
 	  	      contentType : "application/json",
 	  	      data : storyJSON,
 	  	      success : function(data) {
-				swal("Success", "The story has been added!", "success")
-		    	
-		    	.then((value) => {
-		    		location.reload(true);
-		    	});
+				
 	  	      },
 	  	      error : function(data) {
 	  	        console.log(data);
@@ -579,8 +578,11 @@ function downloadFile(cid) {
 	    var storyJSON = JSON.stringify(story);
 	    console.log(storyJSON);
 	    //swal("Success", "The story has been added!", "success");
-	    //location.reload();
-	    //window.location = window.location;
+	    swal("Success", "The story has been updated!", "success")
+		    	
+		    	.then((value) => {
+		    		location.reload(true);
+		    	});
 	    $.ajax({
 	      type : "PUT",
 	      url : "http://35.189.73.113:8081/updatestory",
@@ -588,11 +590,7 @@ function downloadFile(cid) {
 	      contentType : "application/json",
 	      data : storyJSON,
 	      success : function(data) {
-	    	  swal("Success", "The story has been updated!", "success")
-		    	
-		    	.then((value) => {
-		    		location.reload(true);
-		    	});
+	    	 
 	      },
 	      error : function(data) {
 	        console.log(data);
