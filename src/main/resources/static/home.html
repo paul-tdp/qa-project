@@ -342,7 +342,7 @@ function downloadFile(cid) {
             	
             	
             	console.log("this worked!!!!")
-            	
+            	swal("Image Stored", "...now press the save button below!", "success")
             	
             	
             	
@@ -386,10 +386,7 @@ function downloadFile(cid) {
             	
 				swal("Image updated", "...now press the edit button below!", "success")
 		    	
-		    	.then((value) => {
-		    		location.reload();
-		    	});
-            	
+		    
             	
             	
             	
@@ -454,6 +451,7 @@ function downloadFile(cid) {
 	      },
 	      dataType : 'json'
 	    }); 
+	    event.preventDefault();
     } 
 	
 	</Script>
