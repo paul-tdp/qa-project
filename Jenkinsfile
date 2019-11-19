@@ -16,7 +16,7 @@ pipeline {
             }
         stage('Deploy') {
             steps {
-                sh 'docker push paulgirtavic/qaproject:latest'
+                sh 'docker push paulgirtavic/qa-project:latest'
             }
         }
     }
